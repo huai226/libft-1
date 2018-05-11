@@ -6,13 +6,13 @@
 #    By: sshih <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/23 20:51:01 by sshih             #+#    #+#              #
-#    Updated: 2018/05/08 21:52:15 by sshih            ###   ########.fr        #
+#    Updated: 2018/05/10 22:28:46 by sshih            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME =	libft.a
 
-SRC =	ft_memset.c \
+SRC	=	ft_memset.c \
 		ft_bzero.c \
 		ft_memcpy.c \
 		ft_memccpy.c \
@@ -88,4 +88,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all, clean, fclean, re
