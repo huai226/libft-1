@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slin <linsheng4522010@gmail.com>           +#+  +:+       +#+        */
+/*   By: sshih <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/07 11:09:09 by slin              #+#    #+#             */
-/*   Updated: 2017/12/07 13:47:15 by slin             ###   ########.fr       */
+/*   Created: 2018/04/23 15:51:32 by sshih             #+#    #+#             */
+/*   Updated: 2018/05/07 19:49:35 by sshih            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_putstr_fd(char const *s, int fd)
 {
-	if (s)
+	int i;
+
+	i = 0;
+	while(s[i] != '\0')
 	{
-		while (*s)
-		{
-			write(fd, &*s, 1);
-			s++;
-		}
+		ft_putchar_fd((char)s[i], fd);
+		i++;
 	}
 }

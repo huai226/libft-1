@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slin <linsheng4522010@gmail.com>           +#+  +:+       +#+        */
+/*   By: sshih <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/05 15:39:00 by slin              #+#    #+#             */
-/*   Updated: 2017/12/07 13:09:14 by slin             ###   ########.fr       */
+/*   Created: 2018/05/04 14:37:41 by sshih             #+#    #+#             */
+/*   Updated: 2018/05/10 16:33:52 by sshih            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 char	*ft_strnew(size_t size)
 {
-	return ((char*)ft_memalloc(sizeof(char) * (size + 1)));
+	char	*s;
+	
+	s = ft_memalloc(size + 1);
+	return (s);
 }

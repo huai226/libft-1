@@ -3,40 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slin <linsheng4522010@gmail.com>           +#+  +:+       +#+        */
+/*   By: sshih <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/30 18:25:09 by slin              #+#    #+#             */
-/*   Updated: 2017/12/04 21:53:59 by slin             ###   ########.fr       */
+/*   Created: 2018/05/02 21:32:33 by sshih             #+#    #+#             */
+/*   Updated: 2018/05/03 22:27:15 by sshih            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *s1, const char *s2, size_t n)
 {
-	char		*d;
-	const char	*s;
-	size_t		n;
-	size_t		dlen;
+	size_t	i;
+	size_t	s1len;
+	size_t	s2len;
 
-	d = dst;
-	s = src;
-	n = size;
-	while (n-- != 0 && *d != '\0')
-		d++;
-	dlen = d - dst;
-	n = size - dlen;
-	if (n == 0)
-		return (dlen + ft_strlen(s));
-	while (*s != '\0')
+	i = 0;
+	s1len = ft_strlen(s1);
+	s2len = ft_strlen(s2);
+
+	if (n <= s1len)
+		return (s2len + n);
+	while ((s1[i] != '\0') && i < (n - 1))
+		i++;
+	while (*s2 && i < (n - 1))
 	{
-		if (n != 1)
-		{
-			*d++ = *s;
-			n--;
-		}
-		s++;
+		s1[i] = *s2;
+		i++;
+		s2++;
 	}
-	*d = '\0';
-	return (dlen + (s - src));
+	s1[i] = '\0';
+	return (s1len + s2len);
 }

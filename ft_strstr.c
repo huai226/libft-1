@@ -3,34 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slin <linsheng4522010@gmail.com>           +#+  +:+       +#+        */
+/*   By: sshih <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/01 16:12:57 by slin              #+#    #+#             */
-/*   Updated: 2017/12/04 21:57:55 by slin             ###   ########.fr       */
+/*   Created: 2018/04/21 18:26:19 by sshih             #+#    #+#             */
+/*   Updated: 2018/05/10 14:45:06 by sshih            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strstr(const char *big, const char *little)
+char	*ft_strstr(const char *s1, const char *s2)
 {
-	const char *s1;
-	const char *s2;
+	int x;
+	int y;
 
-	if (*little == '\0')
-		return ((char*)big);
-	while (*big != '\0')
+	x = 0;
+	y = 0;
+	if (s2[y] == '\0')
+		return ((char *)s1);
+	while (s1[x] != '\0')
 	{
-		s1 = big;
-		s2 = little;
-		while (*s2 != '\0' && *s1 == *s2)
+		y = 0;
+		while (s2[y] == s1[x + y])
 		{
-			s1++;
-			s2++;
+			if (s2[y + 1] == '\0')
+				return ((char *)s1 + x);
+			y++;
 		}
-		if (*s2 == '\0')
-			return ((char*)big);
-		big++;
+		x++;
 	}
-	return (NULL);
+	return (0);
 }

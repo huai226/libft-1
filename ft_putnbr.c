@@ -3,44 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slin <linsheng4522010@gmail.com>           +#+  +:+       +#+        */
+/*   By: sshih <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/07 10:34:20 by slin              #+#    #+#             */
-/*   Updated: 2017/12/07 11:52:59 by slin             ###   ########.fr       */
+/*   Created: 2018/04/01 20:46:20 by sshih             #+#    #+#             */
+/*   Updated: 2018/05/10 21:50:26 by sshih            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		outsource(void)
+void	ft_putnbr(int nb)
 {
-	char	*str;
-
-	str = "-2147483648";
-	while (*str)
+	if (nb == -2147483648)
+		ft_putstr("-2147483648");
+	else if (nb < 0)
 	{
-		ft_putchar(*str);
-		str++;
+		ft_putchar('-');
+		ft_putnbr(-nb);
 	}
-}
-
-void			ft_putnbr(int n)
-{
-	if (n == -2147483648)
-		outsource();
+	else if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
 	else
-	{
-		if (n < 0)
-		{
-			ft_putchar('-');
-			n *= -1;
-		}
-		if (n < 10)
-			ft_putchar(n + '0');
-		else
-		{
-			ft_putnbr(n / 10);
-			ft_putnbr(n % 10);
-		}
-	}
+		ft_putchar(nb + '0');
 }
