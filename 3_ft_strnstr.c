@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sshih <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/07 22:05:26 by sshih             #+#    #+#             */
-/*   Updated: 2018/05/08 17:38:00 by sshih            ###   ########.fr       */
+/*   Created: 2018/05/12 12:46:05 by sshih             #+#    #+#             */
+/*   Updated: 2018/05/12 12:46:10 by sshih            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+char		*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	if (*alst != NULL && new != NULL)
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	if (*needle == '\0')
+		return ((char *)haystack);
+	while (haystack[i] != '\0' && i < len)
 	{
-		new->next = *alst;
-		*alst = new;
+		j = 0;
+		while (needle[j] && haystack[i + j] &&
+			haystack[i + j] == needle[j] && i + j < len)
+			j++;
+		if (needle[j] == '\0')
+			return ((char *)haystack + i);
+		i++;
 	}
-	*alst = new;
+	return (NULL);
 }
