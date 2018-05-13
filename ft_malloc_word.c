@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_malloc_word.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sshih <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/02 21:32:33 by sshih             #+#    #+#             */
-/*   Updated: 2018/05/13 11:08:46 by sshih            ###   ########.fr       */
+/*   Created: 2018/05/13 11:17:11 by sshih             #+#    #+#             */
+/*   Updated: 2018/05/13 11:22:34 by sshih            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *s1, const char *s2, size_t n)
+char		*ft_malloc_word(char const *str, char c, int j)
 {
-	size_t	i;
-	size_t	s1len;
-	size_t	s2len;
+	char *word;
+	int i;
+	int count;
+	int tmp;
 
-	i = 0;
-	s1len = ft_strlen(s1);
-	s2len = ft_strlen(s2);
-	if (n <= s1len)
-		return (s2len + n);
-	while ((s1[i] != '\0') && i < (n - 1))
-		i++;
-	while (*s2 && i < (n - 1))
+	count = 0;
+	tmp = j;
+	while (str[tmp] != c && str[tmp] != '\0')
 	{
-		s1[i] = *s2;
-		i++;
-		s2++;
+		tmp++;
+		count++;
 	}
-	s1[i] = '\0';
-	return (s1len + s2len);
+	if (!(word = (char*)malloc(sizeof(char) * (count + 1))))
+		return (NULL);
+	i = 0;
+	while (str[j] != c && str[j] != '\0')
+	{
+		word[i] = str[j];
+		i++;
+		j++;
+	}
+	word[i] = '\0';
+	return (word);
 }

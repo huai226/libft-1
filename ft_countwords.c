@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_countwords.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sshih <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/02 21:32:33 by sshih             #+#    #+#             */
-/*   Updated: 2018/05/13 11:08:46 by sshih            ###   ########.fr       */
+/*   Created: 2018/05/13 11:31:22 by sshih             #+#    #+#             */
+/*   Updated: 2018/05/13 11:33:53 by sshih            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *s1, const char *s2, size_t n)
+int		ft_countwords(char const *str, char c)
 {
-	size_t	i;
-	size_t	s1len;
-	size_t	s2len;
+	int i;
 
 	i = 0;
-	s1len = ft_strlen(s1);
-	s2len = ft_strlen(s2);
-	if (n <= s1len)
-		return (s2len + n);
-	while ((s1[i] != '\0') && i < (n - 1))
-		i++;
-	while (*s2 && i < (n - 1))
+	while (*str)
 	{
-		s1[i] = *s2;
-		i++;
-		s2++;
+		if (*str == c)
+			str++;
+		else
+		{
+			i++;
+			while (*str && *str != c)
+				str++;
+		}
 	}
-	s1[i] = '\0';
-	return (s1len + s2len);
+	return (i);
 }

@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sshih <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/02 21:32:33 by sshih             #+#    #+#             */
-/*   Updated: 2018/05/13 11:08:46 by sshih            ###   ########.fr       */
+/*   Created: 2018/03/15 16:07:33 by sshih             #+#    #+#             */
+/*   Updated: 2018/03/15 17:20:28 by sshih            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *s1, const char *s2, size_t n)
+void	ft_swap(int *a, int *b)
 {
-	size_t	i;
-	size_t	s1len;
-	size_t	s2len;
+	int	temp;
 
-	i = 0;
-	s1len = ft_strlen(s1);
-	s2len = ft_strlen(s2);
-	if (n <= s1len)
-		return (s2len + n);
-	while ((s1[i] != '\0') && i < (n - 1))
-		i++;
-	while (*s2 && i < (n - 1))
-	{
-		s1[i] = *s2;
-		i++;
-		s2++;
-	}
-	s1[i] = '\0';
-	return (s1len + s2len);
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }

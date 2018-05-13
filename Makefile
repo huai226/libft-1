@@ -69,7 +69,13 @@ SRC	=	ft_memset.c \
 		ft_lstdel.c \
 		ft_lstadd.c \
 		ft_lstiter.c \
-		ft_lstmap.c
+		ft_lstmap.c \
+		ft_malloc_word.c \
+		ft_countwords.c \
+		ft_swap.c \
+		ft_search_and_replace.c \
+		ft_strrev.c \
+		ft_strlen_til.c
 
 OBJ = $(SRC:.c=.o)
 

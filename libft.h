@@ -89,4 +89,11 @@ void	ft_lstadd(t_list **alst, t_list *new);
 void	ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list	*ft_lstmap(t_list *lst, t_list *(f)(t_list *elem));
 
+/* Extra_ft */
+char	*ft_malloc_word(char const *str, char c, int j);
+int 	ft_countwords(char const *str, char c);
+void	ft_swap(int *a, int *b);
+void	ft_search_and_replace(char *s, char c1, char c2);
+char	*ft_strrev(char *str);
+
 #endif

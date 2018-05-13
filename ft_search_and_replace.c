@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_search_and_replace.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sshih <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/02 21:32:33 by sshih             #+#    #+#             */
-/*   Updated: 2018/05/13 11:08:46 by sshih            ###   ########.fr       */
+/*   Created: 2018/05/13 11:57:54 by sshih             #+#    #+#             */
+/*   Updated: 2018/05/13 12:02:33 by sshih            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *s1, const char *s2, size_t n)
+void	ft_search_and_replace(char *s, char c1, char c2)
 {
-	size_t	i;
-	size_t	s1len;
-	size_t	s2len;
+	int i;
 
 	i = 0;
-	s1len = ft_strlen(s1);
-	s2len = ft_strlen(s2);
-	if (n <= s1len)
-		return (s2len + n);
-	while ((s1[i] != '\0') && i < (n - 1))
-		i++;
-	while (*s2 && i < (n - 1))
+	while (s[i])
 	{
-		s1[i] = *s2;
+		if (s[i] == c1)
+			write(1, &c2, 1);
+		else
+			write(1, &s[i], 1);
 		i++;
-		s2++;
 	}
-	s1[i] = '\0';
-	return (s1len + s2len);
 }
